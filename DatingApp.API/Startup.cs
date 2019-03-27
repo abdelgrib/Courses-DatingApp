@@ -107,7 +107,7 @@ namespace DatingApp.API
             }
             /*Http request pipeline l'ordre est important*/
             // app.UseHttpsRedirection();
-            // seeder.SeedUsers();
+            seeder.SeedUsers();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             

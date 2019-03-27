@@ -51,10 +51,21 @@ namespace DatingApp.API.Controllers
             if (userFromDb == null)
                 return Unauthorized();
 
+            var user = _mapper.Map<UserForListDto>(userFromDb);
+
+            return Ok(new
+            {
+                token = GenerateJwtToken(userFromDb),
+                user /*juste pour avoir plus d'info sans les mettre dans le token*/
+            });
+        }
+
+        private string GenerateJwtToken(User user)
+        {
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, userFromDb.Id.ToString()),
-                new Claim(ClaimTypes.Name, userFromDb.Username),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.Username),
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
@@ -72,13 +83,7 @@ namespace DatingApp.API.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            var user = _mapper.Map<UserForListDto>(userFromDb);
-
-            return Ok(new
-            {
-                token = tokenHandler.WriteToken(token),
-                user
-            });
+            return tokenHandler.WriteToken(token);
         }
     }
 }
