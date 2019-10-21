@@ -19,10 +19,10 @@ export class ErrorInterceptor implements HttpInterceptor {
                     }
                     const serverError = error.error;
                     let modelStateErros = '';
-                    if (serverError && typeof serverError === 'object') {
-                        for (const key in serverError) {
-                            if (serverError[key]) {
-                                modelStateErros += serverError[key] + '\n';
+                    if (serverError.errors && typeof serverError.errors === 'object') {
+                        for (const key in serverError.errors) {
+                            if (serverError.errors[key]) {
+                                modelStateErros += serverError.errors[key] + '\n';
                             }
                         }
                         console.error(applicationError);

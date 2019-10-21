@@ -4,6 +4,13 @@ https://stackoverflow.com/questions/54529027/node-modules-rxjs-internal-types-d-
 
 https://github.com/angular/angular-cli/issues/2375
 
+https://github.com/lukasz-galka/ngx-gallery/issues/242
+
+ng update @angular/core --allow-dirty --force
+npm i typescript@"<0.0.0"
+https://stackoverflow.com/questions/56773528/repository-is-not-clean-please-commit-or-stash-any-changes-before-updating-in-a
+https://github.com/angular/angular-cli/issues/13095
+
 links :
 
 https://docs.microsoft.com/en-us/dotnet/azure/dotnet-howto-migrate-app-service?view=azure-dotnet
