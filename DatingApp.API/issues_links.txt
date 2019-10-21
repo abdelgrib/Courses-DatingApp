@@ -1,0 +1,13 @@
+issues :
+
+https://stackoverflow.com/questions/54529027/node-modules-rxjs-internal-types-d-ts81-44-error-ts1005-expected-error-a
+
+https://github.com/angular/angular-cli/issues/2375
+
+links :
+
+https://docs.microsoft.com/en-us/dotnet/azure/dotnet-howto-migrate-app-service?view=azure-dotnet
+
+https://docs.microsoft.com/en-us/aspnet/core/migration/21-to-22?view=aspnetcore-3.0&tabs=visual-studio
+
+https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/index?view=aspnetcore-3.0#in-process-hosting-model
