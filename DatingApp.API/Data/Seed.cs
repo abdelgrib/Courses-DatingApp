@@ -7,14 +7,10 @@ namespace DatingApp.API.Data
 {
     public class Seed
     {
-        private readonly DataContext _context;
-        public Seed(DataContext context)
+        //Seed now not in Starup but in Program, won't be injected, will be used via static methods
+        public static void SeedUsers(DataContext context)
         {
-            this._context = context;
-        }
-        public void SeedUsers()
-        {
-            if (!_context.Users.Any()) 
+            if (!context.Users.Any()) 
             {
                 var userData = System.IO.File.ReadAllText("Data/UserSeedData.json");
                 var users = JsonConvert.DeserializeObject<List<User>>(userData);
@@ -25,13 +21,13 @@ namespace DatingApp.API.Data
                     user.PasswordHash = passwordHash;
                     user.PasswordSalt = passwordSalt;
                     user.Username = user.Username.ToLower();
-                    _context.Users.Add(user);
+                    context.Users.Add(user);
                 }
-                _context.SaveChanges();
+                context.SaveChanges();
             }
         }
 
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using(var hmac = new System.Security.Cryptography.HMACSHA512())
             {
