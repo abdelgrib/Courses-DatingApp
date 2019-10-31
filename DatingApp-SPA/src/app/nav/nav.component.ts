@@ -42,6 +42,12 @@ export class NavComponent implements OnInit {
     this.authService.currentUser = null;
     this.alertify.message('logged out');
     this.router.navigate(['/home']);
+    this.model = {};
+  }
+
+  getDisplayName() {
+    //return this.authService.docodedToken?.unique_name; //work when used in html !!!
+    return this.authService.docodedToken ? this.authService.docodedToken.unique_name : '';
   }
 
 }
