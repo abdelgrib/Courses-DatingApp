@@ -19,7 +19,7 @@ export class MessagesResolver implements Resolve<Message[]> {
         return this.userService.getMessages(this.authService.docodedToken.nameid, this.pageNumber, this.pageSize, this.messageContainer)
         .pipe(
             catchError(error => {
-                this.alertify.error('Prolem retrieving messages');
+                this.alertify.error('Problem retrieving messages');
                 this.router.navigate(['/home']);
                 return of(null);
             })
