@@ -13,16 +13,30 @@ variables:
   buildConfiguration: 'Release' #type of build
 
 steps:
-- script: dotnet build DatingApp.API/DatingApp.API.csproj --configuration $(buildConfiguration) #build .net core app
-  displayName: 'dotnet build $(buildConfiguration)'
 
-- task: DotNetCoreCLI@2 #publish app
+#npm install for angular app
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    command: 'install'
+    workingDir: 'DatingApp-SPA'
+#build angular app (ng build --prod)
+- task: Npm@1
+  displayName: 'npm run build-prod'
+  inputs:
+    command: 'custom'
+    workingDir: 'DatingApp-SPA'
+    customCommand: 'run build-prod'
+#build .net core app
+- script: dotnet build DatingApp.API/DatingApp.API.csproj --configuration $(buildConfiguration) 
+  displayName: 'dotnet build $(buildConfiguration)'
+#publish app
+- task: DotNetCoreCLI@2 
   displayName: 'dotnet publish $(buildConfiguration)'
   inputs:
     command: publish
     publishWebProjects: True
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
-
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifacts'
