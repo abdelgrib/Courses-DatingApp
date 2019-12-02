@@ -15,9 +15,11 @@ variables:
 steps:
 
 - script: sudo npm install @angular/cli -g
+  displayName: 'install ng/cli'
   workingDirectory: 'DatingApp-SPA'
 
 - script: sudo npm install
+  displayName: 'npm install'
   workingDirectory: 'DatingApp-SPA'
 
 - script: ng build --prod 
