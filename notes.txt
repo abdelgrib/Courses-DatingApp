@@ -1,4 +1,5 @@
-issues :
+Angular :
+---------
 
 https://stackoverflow.com/questions/54529027/node-modules-rxjs-internal-types-d-ts81-44-error-ts1005-expected-error-a
 
@@ -11,7 +12,8 @@ npm i typescript@"<0.0.0"
 https://stackoverflow.com/questions/56773528/repository-is-not-clean-please-commit-or-stash-any-changes-before-updating-in-a
 https://github.com/angular/angular-cli/issues/13095
 
-links :
+.NET Core :
+-----------
 
 https://docs.microsoft.com/en-us/dotnet/azure/dotnet-howto-migrate-app-service?view=azure-dotnet
 
@@ -19,7 +21,10 @@ https://docs.microsoft.com/en-us/aspnet/core/migration/21-to-22?view=aspnetcore-
 
 https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/index?view=aspnetcore-3.0#in-process-hosting-model
 
-notes :
-
 Select package version that matches or gets closer to the .NET Core 'Runtime' version. 2.2.7 is installed but packages for .NET Core have versions : 2.2.6, 3.0.0, etc. 
 If we use 2.2.7 for package, the version 3.0.0 of package will be used while we are using 2.2 SDK
+
+Azure :
+-------
+
+https://stackoverflow.com/questions/56899467/azure-devops-ci-pipeline-cannot-build-asp-net-core-project-because-it-is-in-subf
