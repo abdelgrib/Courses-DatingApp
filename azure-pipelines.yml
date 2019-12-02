@@ -14,10 +14,10 @@ variables:
 
 steps:
 
-- script: npm install @angular/cli -g
+- script: sudo npm install @angular/cli -g
   workingDirectory: 'DatingApp-SPA'
 
-- script: npm install
+- script: sudo npm install
   workingDirectory: 'DatingApp-SPA'
 
 - script: ng build --prod 
