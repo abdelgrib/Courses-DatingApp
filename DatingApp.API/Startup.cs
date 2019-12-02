@@ -114,7 +114,7 @@ namespace DatingApp.API
             app.UseDefaultFiles();
             app.UseStaticFiles();
             
-            app.UseEndpoints(endpoints => /*Web API, mvc if mvc*/
+            app.UseEndpoints(endpoints => /*Web API, usemvc if mvc*/
             {
                 endpoints.MapControllers(); /*Web API*/
                 endpoints.MapFallbackToController("Index", "Fallback");
