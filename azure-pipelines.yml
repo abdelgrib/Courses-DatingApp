@@ -10,27 +10,33 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  buildConfiguration: 'Release' #type of build
+  buildConfiguration: 'Release'
 
 steps:
 
-#npm install for angular app
 - task: Npm@1
   displayName: 'npm install'
   inputs:
     command: 'install'
     workingDir: 'DatingApp-SPA'
-#build angular app (ng build --prod)
+
 - task: Npm@1
-  displayName: 'npm run build-prod'
+  displayName: 'install angular/cli'
+  inputs:
+    command: 'custom'
+    workingDir: 'DatingApp-SPA'
+    customCommand: 'install -g @angular/cli'
+
+- task: Npm@1
+  displayName: 'build angular'
   inputs:
     command: 'custom'
     workingDir: 'DatingApp-SPA'
     customCommand: 'run build-prod'
-#build .net core app
+
 - script: dotnet build DatingApp.API/DatingApp.API.csproj --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
-#publish app
+
 - task: DotNetCoreCLI@2 
   displayName: 'dotnet publish $(buildConfiguration)'
   inputs:
@@ -38,5 +44,6 @@ steps:
     publishWebProjects: True
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
+
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifacts'
