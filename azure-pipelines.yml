@@ -15,11 +15,11 @@ variables:
 steps:
 
 - task: Npm@1
-  displayName: 'sudo install angular/cli'
+  displayName: 'install angular/cli'
   inputs:
     command: 'custom'
     workingDir: 'DatingApp-SPA'
-    customCommand: 'install -g @angular/cli'
+    customCommand: 'sudo install -g @angular/cli'
 
 - task: Npm@1
   displayName: 'npm install'
