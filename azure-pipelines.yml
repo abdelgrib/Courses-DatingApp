@@ -14,17 +14,19 @@ variables:
 
 steps:
 
-- script: sudo npm install @angular/cli -g
-  displayName: 'install ng/cli'
-  workingDirectory: 'DatingApp-SPA'
-
-- script: sudo npm install
+- task: Npm@1
   displayName: 'npm install'
-  workingDirectory: 'DatingApp-SPA'
+  inputs:
+    workingDir: 'DatingApp-SPA'
+    verbose: false
 
-- script: ng build --prod 
+- task: Npm@1
   displayName: 'ng build'
-  workingDirectory: DatingApp-SPA
+  inputs:
+    command: custom
+    workingDir: 'DatingApp-SPA'
+    verbose: false
+    customCommand: 'run ng build --prod'
 
 - script: dotnet build DatingApp.API/DatingApp.API.csproj --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
