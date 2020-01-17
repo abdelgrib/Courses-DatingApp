@@ -29,6 +29,8 @@ Azure :
 
 https://dotnetthoughts.net/create-a-build-pipeline-for-aspnetcore-angular-with-vsts/
 
-https://stackoverflow.com/questions/56899467/azure-devops-ci-pipeline-cannot-build-asp-net-core-project-because-it-is-in-subf
+https://www.youtube.com/watch?v=jRgLSMlp28U
 
-https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml
+// https://stackoverflow.com/questions/56899467/azure-devops-ci-pipeline-cannot-build-asp-net-core-project-because-it-is-in-subf
+
+// https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml
