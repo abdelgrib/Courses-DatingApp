@@ -23,14 +23,3 @@ https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/index?view=aspn
 
 Select package version that matches or gets closer to the .NET Core 'Runtime' version. 2.2.7 is installed but packages for .NET Core have versions : 2.2.6, 3.0.0, etc. 
 If we use 2.2.7 for package, the version 3.0.0 of package will be used while we are using 2.2 SDK
-
-Azure :
--------
-
-https://dotnetthoughts.net/create-a-build-pipeline-for-aspnetcore-angular-with-vsts/
-
-https://www.youtube.com/watch?v=jRgLSMlp28U
-
-// https://stackoverflow.com/questions/56899467/azure-devops-ci-pipeline-cannot-build-asp-net-core-project-because-it-is-in-subf
-
-// https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml
